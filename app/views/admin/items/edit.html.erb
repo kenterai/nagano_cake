@@ -1,7 +1,7 @@
 <div class="container px-md-0">
   <div class="row">
     <div class="col-md-4">
-      <h5 class="text-center"><span class="bg-light">商品新規登録</span></h5>
+      <h5 class="text-center"><span class="bg-light">商品編集</span></h5>
     </div>
   </div><br>
   
@@ -39,8 +39,10 @@
           <tr>
             <td>販売ステータス</td>
             <td>
-              <%= f.radio_button :is_active, 'true' %><%= f.label :is_active, '販売中', value: true %>
-　　          <%= f.radio_button :is_active, 'false' %><%= f.label :is_active, '販売停止中', value: false %>
+              <%= f.radio_button :is_active, 'true' %>
+              <%= f.label :is_active, '販売中', value: true %>　
+              <%= f.radio_button :is_active, 'false' %>
+              <%= f.label :is_active, '販売停止中', value: false %>
             </td>
           </tr>
           

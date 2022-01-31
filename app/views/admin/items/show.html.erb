@@ -9,7 +9,7 @@
     <div class="col-md-4"><br>
       <%= image_tag @item.get_image("300x250") %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4"><br>
       <table class="table  table-borderless">
         <tbody>
           <tr>
@@ -34,11 +34,7 @@
 
           <tr>
             <td>販売ステータス</td>
-            <% if @item.is_active == true %>
-            　<th class="text-success">販売中</th>
-          　<% else %>
-              <th　class="text-secondary">販売停止中</th>
-          　<% end %>
+            <th class=<%= is_active_color(@item) %> ><%= @item.is_active ? '販売中':'販売停止中' %></th>
           </tr>
         </tbody>
       </table>

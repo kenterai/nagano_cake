@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -18,15 +19,29 @@
           <a class="navbar-brand m-3"><span class="border">LOGO</span></a>
         </div>
       </nav>
+      
+    <% if customer_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "新規登録", new_customer_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_customer_session_path %>
+      </li>
+    <% end %>
+
     </header>
-    
+
     <main>
       <p id='notice'></p>
         <%= yield %>
     </main>
-    
+
     <footer>
-      
+
     </footer>
   </body>
 </html>
