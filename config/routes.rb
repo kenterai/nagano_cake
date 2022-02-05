@@ -9,8 +9,14 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resource :customers, only:[:edit, :update, :quit, :out]
+    resource :customers, only:[:edit, :update]
     get 'customers/my_page' => 'customers#show'
+    get 'customers/quit' => 'customers#quit'
+    patch 'customers/out' => 'customers#out'
+    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+    resources :items, only:[:index, :show]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only:[:index, :update, :destroy, :create]
   end
 
   devise_for :customers, controllers: {

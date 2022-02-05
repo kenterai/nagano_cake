@@ -33,20 +33,21 @@
     <div class="col-md-9  offset-md-3">
       <h2 class="font-weight-bold">新着商品</h2>
 
-      <table class="table top-table table-borderless">
-        <tbody>
-          <% @items.each do |item| %>
-          <tr>
-            <td><%= image_tag item.get_image("150x150") %></td>
-            <th><%= item.name %></th>
-            <th>¥<%= item.price.to_s(:delimited) %></th>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+　　　<div class="row">
+      <% @items.each do |item| %>
+        <div class="col-md-3">
+          <div>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image("135x150") %>
+            <% end %>
+          </div><br>
+           <%= item.name %><br><br>
+           ¥<%= item.price.to_s(:delimited) %>
+        </div>
+      <% end %>
+      </div>
+
+      <p class="text-primary text-right"><span class="border-bottom border-primary">全ての商品を見る></span></p>
     </div>
   </div>
-
-  <p class="text-primary text-right"><span class="border-bottom border-primary">全ての商品を見る></span></p>
-
 </div>

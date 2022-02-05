@@ -1,0 +1,65 @@
+<div class="container px-md-0">
+  <div class="row">
+    <div class="col-md-4">
+      <h5 class="text-center"><span class="bg-light">配送先登録/一覧</span></h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10s">
+      <table class="table  table-borderless">
+        <tbody>
+          <%= form_with model:@address,url:addresses_path,method: :post,local:true do |f| %>
+    　     <tr>
+          　<td><%= f.label :postal_code,"郵便番号(ハイフンなし)" %></td>
+          　<td><%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000", size: "25" %></td>
+          　<td></td>
+          </tr>
+
+    　     <tr>
+          　<td><%= f.label :address,"住所" %></td>
+          　<td><%= f.text_field :address, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0", size: "80" %></td>
+          　<td></td>
+          </tr>
+
+          <tr>
+            <td><%= f.label :name,"宛名" %></td>
+            <td><%= f.text_field :name, placeholder: "令和道子", size: "25" %></td>
+            <td><%= f.submit "　新規登録　",class:"btn btn-success" %></td>
+          </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div><br>
+
+  <div class="row">
+    <div class="col-md-9">
+      <table class="table table-bordered">
+        <thead class="bg-light">
+          <tr>
+            <td>郵便番号</td>
+            <td>住所</td>
+            <td>宛名</td>
+            <td></td>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @addresses.each do |address| %>
+          <tr>
+            <td class="align-middle"><%= address.postal_code %></td>
+            <td class="align-middle"><%= address.address %></td>
+            <td class="align-middle"><%= address.name %></td>
+            <td class="align-middle">
+              <%= link_to '編集する',edit_address_path(address.id),class:"btn btn-success ml-2" %>
+              <%= link_to '削除する',address_path(address.id),method: :delete,class:"btn btn-danger ml-2" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
