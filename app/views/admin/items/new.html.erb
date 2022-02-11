@@ -4,12 +4,12 @@
       <h5 class="text-center"><span class="bg-light">商品新規登録</span></h5>
     </div>
   </div><br>
-  
+
   <div class="row">
     <div class="offset-md-2">
+      <%= form_with model:@item,url:admin_items_path,method: :post,local:true do |f| %>
       <table class="table  table-borderless">
         <tbody>
-          <%= form_with model:@item,url:admin_items_path,method: :post,local:true do |f| %>
           <tr>
             <td>商品画像</td>
             <td><%= f.file_field :image,class:"form-control-file user_image",accept: "image/*" %></td>
@@ -29,7 +29,7 @@
             <td>ジャンル</td>
             <td><%= f.collection_select:genre_id, Genre.all, :id, :name, include_blank: "--選択して下さい--　　　　　　　　　　　" %></td>
           </tr>
-          
+
           <tr>
             <td>税抜価格</td>
             <td><%= f.text_field:price,class:"form-control item_price", placeholder: "1000" %></td>
@@ -43,14 +43,14 @@
 　　          <%= f.radio_button :is_active, 'false' %><%= f.label :is_active, '販売停止中', value: false %>
             </td>
           </tr>
-          
+
           <tr>
             <td></td>
             <td class="text-center"><%= f.submit "新規登録",class:"btn btn-success" %></td>
           </tr>
-          <% end %>
         </tbody>
       </table>
+      <% end %>
     </div>
   </div>
 </div>

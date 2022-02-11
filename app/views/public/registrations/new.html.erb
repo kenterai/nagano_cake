@@ -7,9 +7,9 @@
 
   <div class="row">
     <div class="col-md-10">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <table class="table table-borderless mb-0">
         <tbody>
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <tr>
             <td><%= f.label :name,"名前" %></td>
             <td>（姓）　<%= f.text_field :last_name, autofocus: true, placeholder: "令和", size: "30" %></td>
@@ -21,7 +21,7 @@
             <td>（セイ）<%= f.text_field :last_name_kana, placeholder: "レイワ", size: "30" %></td>
             <td>（メイ）<%= f.text_field :first_name_kana, placeholder: "ミチコ", size: "30" %></td>
           </tr>
-          
+
     　     <tr>
           　<td><%= f.label :email,"メールアドレス" %></td>
           　<td>　　　　<%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com", size: "30" %></td>
@@ -33,41 +33,41 @@
           　<td>　　　　<%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000", size: "30" %></td>
           　<td></td>
           </tr>
-          
+
     　     <tr>
           　<td><%= f.label :address,"住所" %></td>
           　<td colspan="2">　　　　<%= f.text_field :address, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0", size: "75" %></td>
           </tr>
-      
+
     　     <tr>
           　<td><%= f.label :telephone_number,"電話番号(ハイフンなし)" %></td>
           　<td>　　　　<%= f.telephone_field :telephone_number, autocomplete: "telephone_number", placeholder: "0000000000", size: "30" %></td>
           　<td></td>
           </tr>
-      
+
     　     <tr>
             <td><%= f.label :password,"パスワード(6文字以上)" %></td>
             <td>　　　　<%= f.password_field :password, autocomplete: "new-password", size: "30" %></td>
             <td></td>
           </tr>
-          
+
           <tr>
             <td><%= f.label :password_confirmation,"パスワード(確認用)" %></td>
             <td>　　　　<%= f.password_field :password_confirmation, autocomplete: "new-password", size: "30" %></td>
             <td></td>
           </tr>
-      
+
            <tr>
-            <td></td> 
+            <td></td>
             <td>　　　　<%= f.submit "　　　　　新規登録　　　　　",class:"btn btn-success" %></td>
             <td></td>
           </tr>
-          <% end %>
         </tbody>
   　　　</table>
+  　　<% end %>
   　</div>
 　</div>
-　
+
   <div class="row">
     <div class="col-md-4">
       <h5 class="text-center"><span class="bg-light">既に登録済みの方</span></h5>

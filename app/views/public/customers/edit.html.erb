@@ -7,9 +7,9 @@
 
   <div class="row">
     <div class="col-md-9">
+      <%= form_with model:@customer,url:customers_path,method: :patch,local:true do |f| %>
       <table class="table table-borderless">
         <tbody>
-          <%= form_with model:@customer,url:customers_path,method: :patch,local:true do |f| %>
           <tr>
             <td><%= f.label :name,"氏名" %></td>
             <td><%= f.text_field :last_name, autofocus: true %></td>
@@ -53,13 +53,13 @@
            <tr>
             <td></td>
             <td colspan="2">
-            <%= f.submit "　　　編集内容を保存　　　",class:"btn btn-success" %>　　　　　　　　　　　　　　　　　　
-            <%= link_to '　退会する　',customers_quit_path,class:"btn btn-danger" %></td>
+            <%= f.submit "　　　編集内容を保存　　　",class:"btn btn-success" %>　　　　　　　　　　　　
+　　　　　　<%= link_to '　退会する　',customers_quit_path,class:"btn btn-danger" %></td>
             </td>
           </tr>
-          <% end %>
         </tbody>
   　　　</table>
+  　　<% end %>
   　</div>
 　</div>
 </div>
